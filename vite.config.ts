@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 import { resolve } from 'path';
 
 function pathResolve(dir: string) {
@@ -9,7 +8,7 @@ function pathResolve(dir: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue(), viteCommonjs()],
+    plugins: [vue()],
     css: {
         preprocessorOptions: {
             less: {
@@ -44,6 +43,10 @@ export default defineConfig({
     build: {
         commonjsOptions: {
             transformMixedEsModules: true,
+            exclude: [
+                'node_modules/lodash-es/**',
+                'node_modules/@types/lodash-es/**',
+            ],
         },
         target: 'es2015',
         outDir: 'dist',
