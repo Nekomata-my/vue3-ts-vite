@@ -46,8 +46,8 @@ export default defineConfig({
         commonjsOptions: {
             transformMixedEsModules: true,
             exclude: [
-                'node_modules/lodash-es/',
-                'node_modules/@types/lodash-es/'
+                'node_modules/lodash-es/**',
+                'node_modules/@types/lodash-es/**'
             ],
         },
         target: 'es2015',
